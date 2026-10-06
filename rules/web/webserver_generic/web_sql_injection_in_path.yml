@@ -1,0 +1,23 @@
+title: SQL Injection Attempt
+id: 02f19c12-1e08-46b4-98b4-de0bef93e17d
+status: test
+description: Actively Detects SQL Injection attempts
+author: Owen Ross (@Dev2023-Op)
+date: 2026-10-07
+modified: 2026-10-07
+tags:
+    - attack.initial-access
+    - attack.t1190
+logsource:
+    category: webserver
+detection:
+    selection:
+        cs-uri-query|contains:
+            - '1'='1'
+            - 'UNION'
+            - '--'
+            - '
+    condition: selection
+falsepositives:
+    - Legitimate database or search query
+level: medium
