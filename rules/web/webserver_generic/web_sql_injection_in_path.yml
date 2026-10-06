@@ -20,4 +20,5 @@ detection:
     condition: selection
 falsepositives:
     - Legitimate database or search query
-level: medium
+    - Internal vulnerability scanners
+level: high
